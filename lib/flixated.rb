@@ -1,7 +1,7 @@
 $LOAD_PATH << File.dirname(__FILE__) unless $LOAD_PATH.include?(File.dirname(__FILE__))
 
 require 'oauth'
-require 'xmlsimple'
+require 'json'
 require 'flixated/client'
 
 module Flixated

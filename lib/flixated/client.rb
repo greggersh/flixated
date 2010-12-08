@@ -1,5 +1,5 @@
-require 'flixated/search'
-require 'flixated/details'
+require 'flixated/catalog'
+require 'flixated/utils'
 
 module Flixated
   class Client
@@ -45,17 +45,17 @@ module Flixated
       
       def get(path, headers = {})
         headers.merge!('User-Agent' => "flixated gem v#{Flixated::VERSION}")
-        XmlSimple.xml_in access_token.get(path, headers).body
+        JSON.parse access_token.get(sanitize_path(path), headers).body
       end
       
       def post(path, body = '', headers = {})
         headers.merge!('User-Agent' => "flixated gem v#{Flixated::VERSION}")
-        XmlSimple.xml_in access_token.post(path, body, headers).body
+        JSON.parse access_token.post(sanitize_path(path), body, headers).body
       end
       
       def delete(path, headers = {})
         headers.merge!('User-Agent' => "flixated gem v#{Flixated::VERSION}")
-        XmlSimple.xml_in access_token.delete(path, headers).body
+        JSON.parse access_token.delete(sanitize_path(path), headers).body
       end
   end
 end
