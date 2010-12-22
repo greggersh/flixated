@@ -15,7 +15,7 @@ module Flixated
     #
     # OAuth consumer key and signature required
     def titles(term, params = {})
-      args = '&' + params.map { |k,v| "#{k}=#{v}" }.join('&') unless params.empty?
+      args = '&' + paramify(params) unless params.empty?
       get("/catalog/titles?term=#{term}#{args}")
     end
     
@@ -107,7 +107,7 @@ module Flixated
     #
     # OAuth consumer key and signature required
     def similars(id, params = {})
-      args = '?' + params.map { |k,v| "#{k}=#{v}" }.join('&') unless params.empty?
+      args = '?' + paramify(params) unless params.empty?
       get("/catalog/titles/#{id.to_s}/similars#{args}")
     end
     
@@ -127,7 +127,7 @@ module Flixated
     #
     # OAuth consumer key and signature required
     def people(term, params = {})
-      args = '&' + params.map { |k,v| "#{k}=#{v}" }.join('&') unless params.empty?
+      args = '&' + paramify(params) unless params.empty?
       get("/catalog/people?term=#{term}#{args}")
     end
     

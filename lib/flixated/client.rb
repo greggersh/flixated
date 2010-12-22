@@ -25,16 +25,11 @@ module Flixated
       consumer.get_request_token(options)
     end
     
-    def authentication_request_token(options = {})
-      consumer.options[:authorize_url] = AUTHORIZE_URL
-      request_token(options)
-    end
-    
     private
       def consumer
         consumer ||= OAuth::Consumer.new(@consumer_key, @consumer_secret, {
           :site             => 'http://api.netflix.com',
-          :authorize_url    => AUTHORIZE_URL,
+          :authorize_url    => 'https://api-user.netflix.com/oauth/login',
           :request_endpoint => @proxy
         })
       end

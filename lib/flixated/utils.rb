@@ -13,5 +13,9 @@ module Flixated
         end
         URI.encode(path)
       end
+      
+      def paramify(params)
+        params.map { |k,v| "#{k}=#{v}" }.join('&')
+      end
   end
 end
