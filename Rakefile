@@ -1,5 +1,6 @@
 require 'rubygems'
 require 'bundler'
+require File.expand_path('../lib/flixated/version', __FILE__)
 begin
   Bundler.setup(:default, :development)
 rescue Bundler::BundlerError => e
@@ -19,6 +20,7 @@ Jeweler::Tasks.new do |gem|
   gem.email = "anthony@sticksnleaves.com"
   gem.authors = ["Anthony Smith"]
   gem.version = Flixated::VERSION
+  gem.files = Dir.glob('lib/**/*')
   # Include your dependencies below. Runtime dependencies are required when using your gem,
   # and development dependencies are only needed for development (ie running rake tasks, tests, etc)
   #  gem.add_runtime_dependency 'jabber4r', '> 0.1'
@@ -29,8 +31,10 @@ Jeweler::Tasks.new do |gem|
   gem.add_development_dependency 'jeweler', '~> 1.5.2'
   gem.add_development_dependency 'rcov',    '>= 0'
   
-  gem.add_runtime_dependency 'oauth', '~> 0.4.4'
-  gem.add_runtime_dependency 'json',  '~> 1.4.6'
+  gem.add_runtime_dependency 'oauth',      '~> 0.4.4'
+  gem.add_runtime_dependency 'yajl-ruby',  '~> 0.7.9'
+  gem.add_runtime_dependency 'multi_xml',  '~> 0.2.0'
+  gem.add_runtime_dependency 'hashie',     '~> 1.0.0'
 end
 Jeweler::RubygemsDotOrgTasks.new
 

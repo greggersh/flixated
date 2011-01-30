@@ -12,5 +12,7 @@ group :development do
   gem "rcov", ">= 0"
 end
 
-gem 'oauth', '~> 0.4.4'
-gem 'json',  '~> 1.4.6'
+gem 'oauth',     '~> 0.4.4'
+gem 'yajl-ruby', '~> 0.7.9'
+gem 'multi_xml', '~> 0.2.0'
+gem 'hashie',    '~> 1.0.0'
