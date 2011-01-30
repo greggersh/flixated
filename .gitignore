@@ -2,3 +2,5 @@
 .project
 Gemfile.lock
 pkg
+doc
+.yardoc
