@@ -38,9 +38,13 @@ module Flixated
         @access_token ||= OAuth::AccessToken.new(consumer, @oauth_token, @oauth_secret)
       end
       
-      def get(path, headers = {})
+      def get(path, headers = {}, return_json = true)
         headers.merge!('User-Agent' => "flixated gem v#{Flixated::VERSION}")
-        JSON.parse access_token.get(sanitize_path(path), headers).body
+        if return_json
+          JSON.parse access_token.get(sanitize_path(path), headers).body
+        else
+          access_token.get(sanitize_path(path), headers).body
+        end
       end
       
       def post(path, body = '', headers = {})

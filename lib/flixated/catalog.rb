@@ -43,7 +43,7 @@ module Flixated
     #
     # OAuth consumer key and signature required
     def index(include_amg = false, include_tms = false)
-      get("/catalog/titles/index?include_amg=#{include_amg}&include_tms=#{include_tms}")
+      get("/catalog/titles/index?include_amg=#{include_amg}&include_tms=#{include_tms}", {}, false)
     end
     
     # Returns details about a specific movie title.
