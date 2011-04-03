@@ -43,7 +43,7 @@ module Flixated
         if return_json
           JSON.parse access_token.get(sanitize_path(path), headers).body
         else
-          access_token.get(sanitize_path(path), headers).body
+          access_token.get(path, headers).body
         end
       end
       
