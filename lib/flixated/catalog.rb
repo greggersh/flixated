@@ -51,8 +51,8 @@ module Flixated
     #   :id Unique identifier for the desired movie title.
     #
     # OAuth consumer key and signature required
-    def movie(id)
-      get("/catalog/titles/movies/#{id.to_s}")
+    def movie(id, details = nil)
+      get("/catalog/titles/movies/#{id.to_s}#{details.nil? ? "" : "/#{details}"}")
     end
     
     # Returns details about a specific television series.
